@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swap Square</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .navbar {
+      background-color: #343a40;
+    }
+
+    .navbar-brand {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .jumbotron {
+      background-color: #f8f9fa;
+      text-align: center;
+      padding: 80px 0px;
+      margin-bottom: 40px;
+      background-image: url("banner2.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .jumbotron h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .jumbotron p {
+      font-size: 18px;
+      color: #6c757d;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      font-size: 18px;
+      padding: 10px 20px;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+
+    .card {
+      border: none;
+      margin-bottom: 40px;
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-title {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .card-text {
+      color: #6c757d;
+      font-size: 16px;
+    }
+
+    .card-link {
+      color: #007bff;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+
+    .custom-alert {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 400px;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .custom-alert.show {
+      opacity: 1;
+    }
+
+    .custom-alert .alert {
+      border-radius: 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">SwapSquare</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Jumbotron -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1> Welcome to Swap Square</h1>
+      <p> Discover, Swap, Repeat!</p>
+     
+      <a href="#" class="btn btn-primary"> Swap Now</a>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <img class="card-img-top" src="vintagecar.jpg" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">Product 1</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, quos.</p>
+            <a href="#" class="btn btn-primary" onclick="showDetailsNotAvailableAlert()">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <img class="card-img-top" src="gameboy2.jpg" alt="Product 2">
+          <div class="card-body">
+            <h5 class="card-title">Product 2</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, quos.</p>
+            <a href="#" class="btn btn-primary" onclick="showDetailsNotAvailableAlert()">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <img class="card-img-top" src="headphone.jpg" alt="Product 3">
+          <div class="card-body">
+            <h5 class="card-title">Product 3</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, quos.</p>
+            <a href="#" class="btn btn-primary" onclick="showDetailsNotAvailableAlert()">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <img class="card-img-top" src="cycle.jpg" alt="Product 4">
+          <div class="card-body">
+            <h5 class="card-title">Product 4</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, quos.</p>
+            <a href="#" class="btn btn-primary" onclick="showDetailsNotAvailableAlert()">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <img class="card-img-top" src="nikon.jpg" alt="Product 5">
+          <div class="card-body">
+            <h5 class="card-title">Product 5</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, quos.</p>
+            <a href="#" class="btn btn-primary" onclick="showDetailsNotAvailableAlert()">View Details</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <img class="card-img-top" src="bag.jpg" alt="Product 6">
+          <div class="card-body">
+            <h5 class="card-title">Product 6</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, quos.</p>
+            <a href="#" class="btn btn-primary" onclick="showDetailsNotAvailableAlert()">View Details</a>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <img class="card-img-top" src="shoe.jpg" alt="Product 7">
+          <div class="card-body">
+            <h5 class="card-title">Product 7</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, quos.</p>
+            <a href="#" class="btn btn-primary" onclick="showDetailsNotAvailableAlert()">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <img class="card-img-top" src="airpods.jpg" alt="Product 8">
+          <div class="card-body">
+            <h5 class="card-title">Product 8</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, quos.</p>
+            <a href="#" class="btn btn-primary" onclick="showDetailsNotAvailableAlert()">View Details</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <img class="card-img-top" src="vintagecamera.jpg" alt="Product 9">
+          <div class="card-body">
+            <h5 class="card-title">Product 9</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, quos.</p>
+            <a href="#" class="btn btn-primary" onclick="showDetailsNotAvailableAlert()">View Details</a>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+      </div>
+      </div>
+
+
+
+
+
+
+  <footer class="footer bg-dark text-white py-4">
+    <div class="container text-center">
+      <span>&copy; 2023 SwapSquare. All rights reserved.</span>
+    </div>
+  </footer>
+
+
+  <script>
+    function showDetailsNotAvailableAlert() {
+      const alertElement = document.getElementById("customAlert");
+      alertElement.classList.add("show");
+      setTimeout(function() {
+        alertElement.classList.remove("show");
+      }, 3000);
+    }
+  </script>
+  
+  <div class="custom-alert" id="customAlert">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      Details are not available.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
+
